@@ -1,0 +1,11 @@
+@import 'src/shared/assets/styles';
+
+body {
+  background-color: $main-dark-blue;
+  color: $main-light;
+}
+
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
