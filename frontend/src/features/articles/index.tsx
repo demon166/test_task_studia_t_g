@@ -11,24 +11,25 @@ const ArticlesList: FC = () => {
   const articles = useAppSelector(ArticlesSlice.getArticles);
   const status = useAppSelector(ArticlesSlice.getStatus);
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(ArticlesSlice.getArticlesAsync());
   }, [dispatch])
+
   return (
     <div>
       { status === RequestStatuses.LOADING && <Spin/> }
       { status === RequestStatuses.SUCCESS &&
-        <table className={styles.table}>
+        <table className={ styles.table }>
           <thead>
-            <tr>
-              <th>Название статьи</th>
-              <th>Автор</th>
-            </tr>
+          <tr>
+            <th>Название статьи</th>
+            <th>Автор</th>
+          </tr>
           </thead>
           <tbody>
           { articles
             && articles.map((article) => (
-              <ArticleItem article={article} key={article.id}/>
+              <ArticleItem article={ article } key={ article.id }/>
             )) }
           </tbody>
         </table>
