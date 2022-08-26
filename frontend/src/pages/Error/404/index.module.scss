@@ -1,0 +1,12 @@
+@import "src/shared/assets/styles";
+.error_wrap{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font: $h1 ;
+  button{
+    max-width: 250px;
+  }
+}

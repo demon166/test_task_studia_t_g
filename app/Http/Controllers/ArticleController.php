@@ -87,10 +87,15 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        $article->delete();
+      if ($article->delete()) {
         return response()->json([
-            'message' => 'Статья успешно удалена',
-            'article' => new ArticleResource($article),
+          'message' => 'Статья успешно удалена',
+          'article' => new ArticleResource($article),
         ]);
+      } else {
+        return response()->json([
+          'message' => 'Ошибка во время удания статьи',
+        ], 422);
+      }
     }
 }

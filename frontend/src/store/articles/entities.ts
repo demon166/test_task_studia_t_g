@@ -13,15 +13,23 @@ export interface IArticle {
     author: string,
 }
 
+export interface IArticleCreateAndUpdate{
+  title: string,
+  text: string,
+  author_id: string,
+}
+
 export interface IArticleResponse {
   data: IArticle[],
 }
+
 
 export interface IDeleteArticleRequest{
   id: number | string;
 }
 
-export interface IArticleDeleteResponse {
+export interface IArticleCRUDResponse {
   article: IArticle,
   message: string,
 }
+

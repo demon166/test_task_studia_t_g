@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ArticlesPages } from 'pages';
 import { Layout } from 'shared';
+import Error404Page from 'pages/Error/404';
 
 
 const AppRouter = () => {
@@ -13,6 +14,7 @@ const AppRouter = () => {
           <Route path="create" element={ <ArticlesPages.Create/> }/>
           <Route path=":id" element={ <ArticlesPages.Update/> }/>
         </Route>
+        <Route path="*" element={<Error404Page />} />
       </Route>
     </Routes>
   );
