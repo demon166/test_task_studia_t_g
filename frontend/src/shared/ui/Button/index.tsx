@@ -1,22 +1,24 @@
-import React, { DOMAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import styles from './index.module.scss';
 import classNames from 'classnames';
 
-export type ButtonType = "button" | "submit" | "reset"
-export type ButtonStyle = "primary" | "danger"
+export type ButtonStyle = 'primary' | 'danger';
 
-interface IButtonProps extends DOMAttributes<HTMLButtonElement> {
-  typeButton?: ButtonType;
+interface IButtonProps extends ButtonHTMLAttributes<any> {
   onClick?: (event: React.MouseEvent) => void;
   styleBtn?: ButtonStyle;
 }
 
-const Button: React.FC<IButtonProps> = ({ children, onClick, typeButton, styleBtn, ...props }) => {
-  return (
-    <button className={classNames([styles.button, styles['button_' + styleBtn]])} onClick={onClick} type={typeButton} { ...props }>
-      { children }
+const Button: React.FC<IButtonProps> = (
+  { children, className, type, onClick, styleBtn, ...props }) => (
+    <button
+      className={classNames([styles.button, className, styles[`button_${styleBtn}`]])}
+      onClick={onClick}
+      type={type === 'button' ? 'button' : 'submit'}
+      {...props}
+    >
+      {children}
     </button>
-  );
-};
+);
 
 export default Button;

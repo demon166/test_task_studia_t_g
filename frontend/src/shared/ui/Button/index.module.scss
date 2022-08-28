@@ -1,15 +1,14 @@
 @import "src/shared/assets/styles";
 
-.button{
+.button {
   backface-visibility: hidden;
-  border-radius: 6px;
+  border-radius: $input-border-radius;
   border-width: 0;
   box-sizing: border-box;
   background-color: $main-light;
   cursor: pointer;
-  height: 44px;
+  height: 38px;
   font: $p-medium;
-  margin: 12px 0 0;
   outline: none;
   overflow: hidden;
   padding: 0 25px;
@@ -17,33 +16,41 @@
   text-align: center;
   text-transform: none;
   transform: translateZ(0);
-  transition: all .2s,box-shadow .08s ease-in;
+  transition: all .2s, box-shadow .08s ease-in;
   user-select: none;
   touch-action: manipulation;
   width: 100%;
-  &:hover{
+
+  &:hover {
     background-color: darken($main-light, 5%);
   }
-  &:active{
+
+  &:active {
     background-color: darken($main-light, 10%);
   }
-  &_primary{
+
+  &_primary {
     background-color: $main-blue;
     color: #fff;
-    &:hover{
+
+    &:hover {
       background-color: darken($main-blue, 5%);
     }
-    &:active{
+
+    &:active {
       background-color: darken($main-blue, 10%);
     }
   }
-  &_danger{
+
+  &_danger {
     background-color: $main-red;
     color: #fff;
-    &:hover{
+
+    &:hover {
       background-color: darken($main-red, 5%);
     }
-    &:active{
+
+    &:active {
       background-color: darken($main-red, 10%);
     }
   }

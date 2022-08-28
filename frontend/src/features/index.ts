@@ -1,3 +1,3 @@
 import ArticlesList from './articles';
 
-export { ArticlesList }
+export { ArticlesList };

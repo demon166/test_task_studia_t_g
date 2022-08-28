@@ -1,6 +1,6 @@
 import { createAsyncThunk, miniSerializeError } from '@reduxjs/toolkit';
 import { ArticlesService } from './service';
-import { IArticleCreateAndUpdate, IDeleteArticleRequest } from 'store/articles/entities';
+import { ArticlesSlice } from 'store';
 import { toast } from 'react-toastify';
 
 export const getArticlesAsync = createAsyncThunk(
@@ -13,43 +13,50 @@ export const getArticlesAsync = createAsyncThunk(
       const error = miniSerializeError(rejectedValueOrSerializedError);
       return rejectWithValue(error);
     }
-  }
-)
+  },
+);
 
 export const deleteArticleAsync = createAsyncThunk(
   'articlesSlice/deleteArticleAsync',
-  async ({ id }: IDeleteArticleRequest, { dispatch, rejectWithValue }) => {
+  async ({ id }: ArticlesSlice.IDeleteArticleRequest, { dispatch, rejectWithValue }) => {
     try {
       const { data } = await ArticlesService.deleteArticle({ id });
       dispatch(getArticlesAsync());
-      toast.success(`Статья ${ data.article.title.slice(0, 25) } успешно удалена.`);
+      toast.success(`Статья ${data.article.title.slice(0, 25)} успешно удалена.`);
       return data;
     } catch (rejectedValueOrSerializedError) {
       const error = miniSerializeError(rejectedValueOrSerializedError);
-      toast.error(`Не удалось удалить статью`);
+      toast.error('Не удалось удалить статью');
       return rejectWithValue(error);
     }
-  }
-)
+  },
+);
 
 interface IArticleCreateAndUpdateAsyncThunk {
-  article: IArticleCreateAndUpdate,
+  article: ArticlesSlice.IArticleCreateAndUpdate,
   successHandle?: () => void,
   errorHandle?: () => void,
 }
 
 export const createArticleAsync = createAsyncThunk(
   'articlesSlice/createArticleAsync',
-  async ({ article, errorHandle, successHandle }: IArticleCreateAndUpdateAsyncThunk, { dispatch, rejectWithValue }) => {
+  async ({ article, errorHandle, successHandle }: IArticleCreateAndUpdateAsyncThunk, {
+    dispatch,
+    rejectWithValue,
+  }) => {
     try {
       const { data } = await ArticlesService.createArticle(article);
       dispatch(getArticlesAsync());
-      successHandle && successHandle();
+      if (successHandle) {
+        successHandle();
+      }
       return data;
     } catch (rejectedValueOrSerializedError) {
       const error = miniSerializeError(rejectedValueOrSerializedError);
-      errorHandle && errorHandle();
+      if (errorHandle) {
+        errorHandle();
+      }
       return rejectWithValue(error);
     }
-  }
-)
+  },
+);

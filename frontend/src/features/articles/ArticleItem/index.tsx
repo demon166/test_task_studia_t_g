@@ -15,22 +15,21 @@ const ArticleItem = ({ article }: ArticleItemProps) => {
   const navigate = useNavigate();
 
   const editArticleHandle = useCallback(() => {
-    navigate(`/articles/${article.id}`)
-  }, [navigate, article.id])
+    navigate(`/articles/${article.id}`);
+  }, [navigate, article.id]);
 
   const deleteArticleHandle = useCallback(() => {
-    dispatch(ArticlesSlice.deleteArticleAsync(article))
-  }, [dispatch, article])
-
+    dispatch(ArticlesSlice.deleteArticleAsync(article));
+  }, [dispatch, article]);
 
   return (
-    <tr className={ styles.table__row }>
-      <td>{ article.title }</td>
-      <td>{ article.author }</td>
+    <tr className={styles.table__row}>
+      <td>{article.title}</td>
+      <td>{article.author}</td>
       <td>
-        <div className={ styles.btn_group }>
-          <Button styleBtn="primary" onClick={ editArticleHandle }>Редактировать</Button>
-          <Button styleBtn="danger" onClick={ deleteArticleHandle }>Удалить</Button>
+        <div className={styles.btn_group}>
+          <Button styleBtn="primary" onClick={editArticleHandle}>Редактировать</Button>
+          <Button styleBtn="danger" onClick={deleteArticleHandle}>Удалить</Button>
         </div>
       </td>
     </tr>

@@ -1,10 +1,7 @@
 import React from 'react';
 import AppRouter from 'app/routes/AppRouter';
 
-function App() {
-  return (
-    <AppRouter/>
-  );
-}
-
+const App = () => (
+  <AppRouter />
+);
 export default App;

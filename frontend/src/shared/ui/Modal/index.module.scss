@@ -1,0 +1,24 @@
+@import "src/shared/assets/styles";
+
+.modal{
+  position: fixed;
+  box-shadow: 0 0 10px 5px $main-dark-blue;
+  z-index: 1000;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 600px;
+  max-width: 1200px;
+  background-color: #fff;
+  color: $main-dark-blue;
+  border-radius: $input-border-radius;
+  padding: 20px;
+  .button_close_wrap{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .header__title{
+    font: $h2;
+  }
+}

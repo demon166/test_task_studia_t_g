@@ -1,23 +1,33 @@
 @import "src/shared/assets/styles";
 
-.wrap{
+.wrap {
   display: flex;
   flex-direction: column-reverse;
   font: $p-regular;
   margin-top: .5rem;
   margin-bottom: .5rem;
   position: relative;
+
   .input {
     padding: 10px;
-    border-radius: 3px;
+    border-radius: $input-border-radius;
     outline: none;
     border: none;
     z-index: 1;
     position: relative;
-    &::placeholder{
+    box-shadow: 0 0 5px $main-dark-blue;
+
+    &_error {
+      border: 2px solid $main-red;
+      box-shadow: 0 0 10px $main-red;
+      border-radius: $input-border-radius;
+    }
+
+    &::placeholder {
       opacity: 0;
     }
-    &:focus + .label, &:not(:placeholder-shown) + .label{
+
+    &:focus + .label, &:not(:placeholder-shown) + .label {
       position: relative;
       top: 0;
       font-size: .9em;
@@ -25,12 +35,19 @@
       color: $main-light;
     }
   }
-  .label{
+
+  .label {
     color: $main-dark-blue;
     position: relative;
     top: 28px;
     left: 10px;
     z-index: 2;
     transition: .5s ease;
+  }
+
+  .error {
+    font: $p-medium;
+    color: $main-red;
+    padding: 5px 10px 0;
   }
 }

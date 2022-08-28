@@ -1,0 +1,9 @@
+.wrap{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+  button{
+    margin-left: .5rem;
+    max-width: 20%;
+  }
+}

@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { SelectHTMLAttributes } from 'react';
 import styles from './index.module.scss';
+import { FieldError } from 'react-hook-form';
+import classNames from 'classnames';
 
-interface SelectProps {
+interface ISelectProps extends SelectHTMLAttributes<any> {
   options: React.OptionHTMLAttributes<any>[];
   placeholder?: string;
   value?: string | number | undefined;
+  error: FieldError | undefined;
 }
 
-const Select: React.FC<SelectProps> = React.forwardRef(({ options, placeholder, ...selectProps }, ref) => {
-  return (
-    <div className={ styles.wrap }>
-      <select className={ styles.select } { ...selectProps }>
-        <option>{ placeholder || 'Выбирите значение...' }</option>
-        { options.map(({ label, value: valueOption, ...props }, index) => (
+const Select: React.FC<ISelectProps> = React.forwardRef((
+  { options, error, placeholder, ...props }: ISelectProps, ref) => (
+    <div className={styles.wrap}>
+      {error && <span className={styles.error}>{error.message}</span>}
+      <select
+        className={classNames([styles.select, { [styles.select_error]: error }])}
+        {...props}
+      >
+        <option>{placeholder || 'Выбирите значение...'}</option>
+        {options.map(({id, label, value: valueOption, ...optionProps }, index) => (
           <option
-            key={ index }
-            value={ valueOption }
-            { ...props }
-          >{ label }</option>
-        )) }
+            key={id}
+            value={valueOption}
+            {...optionProps}
+          >
+            {label}
+          </option>
+        ))}
       </select>
     </div>
-  );
-});
+));
 
 export default React.memo(Select);

@@ -6,7 +6,7 @@ const ArticlesUpdatePage = () => {
   return (
     <div>
       <h1>Обновление</h1>
-      { id }
+      {id}
     </div>
   );
 };

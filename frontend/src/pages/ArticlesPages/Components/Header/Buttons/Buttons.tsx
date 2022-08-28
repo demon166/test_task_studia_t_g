@@ -4,13 +4,13 @@ import { Button } from 'shared';
 import { useNavigate } from 'react-router-dom';
 
 const Buttons = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const createClickHandle = useCallback(() => {
-    navigate('/articles/create')
+    navigate('/articles/create');
   }, [navigate]);
   return (
-    <div className={ styles.btn_controllers }>
-      <Button onClick={ createClickHandle }>
+    <div className={styles.btn_controllers}>
+      <Button onClick={createClickHandle}>
         Создать
       </Button>
       <Button>

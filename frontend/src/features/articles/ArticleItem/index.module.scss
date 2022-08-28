@@ -1,15 +1,17 @@
 @import "src/shared/assets/styles";
 
-.table__row{
-  td{
+.table__row {
+  td {
     padding: 10px;
     border: 1px solid $main-light;
     vertical-align: middle;
   }
-  .btn_group{
+
+  .btn_group {
     display: flex;
     align-items: center;
-    button{
+
+    button {
       margin-right: .5rem;
       margin-left: .5rem;
     }

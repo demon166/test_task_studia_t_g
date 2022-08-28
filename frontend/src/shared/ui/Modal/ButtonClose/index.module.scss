@@ -1,0 +1,11 @@
+@import "src/shared/assets/styles";
+
+.button_close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: $main-dark-blue;
+  &:hover {
+    color: darken($main-dark-blue, 50);
+  }
+}

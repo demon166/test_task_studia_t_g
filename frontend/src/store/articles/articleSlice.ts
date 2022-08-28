@@ -7,7 +7,7 @@ const initialState: ArticleReducer = {
   articles: null,
   error: null,
   status: RequestStatuses.IDLE,
-}
+};
 
 const articleSlice = createSlice({
   name: 'articleSlice',
@@ -19,18 +19,18 @@ const articleSlice = createSlice({
       status: RequestStatuses.LOADING,
     }),
     [getArticlesAsync.fulfilled?.type]: (state: ArticleReducer,
-                                         { payload: articles }: PayloadAction<IArticleResponse>) => ({
+      { payload: articles }: PayloadAction<IArticleResponse>) => ({
       articles: articles.data,
       status: RequestStatuses.SUCCESS,
       error: null,
     }),
     [getArticlesAsync.rejected?.type]: (state: ArticleReducer,
-                                        { payload: error }: PayloadAction<Error>) => ({
+      { payload: error }: PayloadAction<Error>) => ({
       ...state,
       status: RequestStatuses.FAILURE,
       error,
     }),
-  }
-})
+  },
+});
 
 export const articlesReducer = articleSlice.reducer;

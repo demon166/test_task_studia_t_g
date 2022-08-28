@@ -4,6 +4,8 @@ import Layout from './Layout';
 import Input from './Input';
 import Textarea from './Textarea';
 import Select from './Select';
+import ButtonBack from './ButtonBack';
+import * as Icon from './Icons';
 
 export {
   Button,
@@ -12,4 +14,6 @@ export {
   Select,
   Input,
   Textarea,
-}
+  ButtonBack,
+  Icon,
+};

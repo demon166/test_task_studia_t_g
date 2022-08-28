@@ -13,27 +13,27 @@ const ArticlesList: FC = () => {
 
   useEffect(() => {
     dispatch(ArticlesSlice.getArticlesAsync());
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <div>
-      { status === RequestStatuses.LOADING && <Spin/> }
-      { status === RequestStatuses.SUCCESS &&
-        <table className={ styles.table }>
-          <thead>
-          <tr>
-            <th>Название статьи</th>
-            <th>Автор</th>
-          </tr>
-          </thead>
-          <tbody>
-          { articles
-            && articles.map((article) => (
-              <ArticleItem article={ article } key={ article.id }/>
-            )) }
-          </tbody>
-        </table>
-      }
+      {status === RequestStatuses.LOADING && <Spin />}
+      {status === RequestStatuses.SUCCESS
+        && (
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Название статьи</th>
+                <th>Автор</th>
+              </tr>
+            </thead>
+            <tbody>
+              {articles
+                && articles.map((article) => (
+                  <ArticleItem article={article} key={article.id} />
+                ))}
+            </tbody>
+          </table>)}
     </div>
   );
 };

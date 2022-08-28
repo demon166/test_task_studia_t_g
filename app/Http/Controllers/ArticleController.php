@@ -40,13 +40,18 @@ class ArticleController extends Controller
         $article->title = $request->input('title');
         $article->text = $request->input('text');
         $article->author_id = $request->input('author_id');
-        $article->save();
-        return response()->json([
+        if ($article->save()){
+          return response()->json([
             'data' => [
-                'message' => 'Статья успешно создана',
-                'article' => new ArticleResource($article)
+              'message' => 'Статья успешно создана',
+              'article' => new ArticleResource($article)
             ]
-        ]);
+          ]);
+        } else {
+          return response()->json([
+            'message' => 'Ошибка во время создания статьи',
+          ], 422);
+        }
     }
 
     /**
@@ -72,11 +77,16 @@ class ArticleController extends Controller
         $article->title = $request->input('title');
         $article->text = $request->input('text');
         $article->author_id = $request->input('author_id');
-        $article->save();
-        return response()->json([
-           'message' => 'Статья успешно обновлена',
-           'article' => new ArticleResource($article),
-        ]);
+        if ($article->save()){
+          return response()->json([
+            'message' => 'Статья успешно обновлена',
+            'article' => new ArticleResource($article),
+          ]);
+        } else {
+          return response()->json([
+            'message' => 'Ошибка во время обновления статьи',
+          ], 422);
+        }
     }
 
     /**
