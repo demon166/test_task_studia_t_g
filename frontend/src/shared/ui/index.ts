@@ -5,6 +5,7 @@ import Input from './Input';
 import Textarea from './Textarea';
 import Select from './Select';
 import ButtonBack from './ButtonBack';
+import Modal from './Modal';
 import * as Icon from './Icons';
 
 export {
@@ -16,4 +17,5 @@ export {
   Textarea,
   ButtonBack,
   Icon,
+  Modal,
 };

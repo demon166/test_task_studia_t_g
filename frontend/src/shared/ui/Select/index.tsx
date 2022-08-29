@@ -19,7 +19,7 @@ const Select: React.FC<ISelectProps> = React.forwardRef((
         {...props}
       >
         <option>{placeholder || 'Выбирите значение...'}</option>
-        {options.map(({id, label, value: valueOption, ...optionProps }, index) => (
+        {options.map(({ id, label, value: valueOption, ...optionProps }) => (
           <option
             key={id}
             value={valueOption}

@@ -1,3 +1,4 @@
 import ArticlesList from './articles';
+import { AuthorModalCreate } from './authors';
 
-export { ArticlesList };
+export { ArticlesList, AuthorModalCreate };

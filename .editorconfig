@@ -41,14 +41,6 @@ ij_css_space_before_opening_brace = true
 ij_css_use_double_quotes = true
 ij_css_value_alignment = do_not_align
 
-[*.feature]
-tab_width = 4
-ij_gherkin_keep_indents_on_empty_lines = false
-
-[*.haml]
-tab_width = 4
-ij_haml_keep_indents_on_empty_lines = false
-
 [*.less]
 tab_width = 4
 ij_less_align_closing_brace_with_properties = false
@@ -116,23 +108,6 @@ ij_scss_space_after_colon = true
 ij_scss_space_before_opening_brace = true
 ij_scss_use_double_quotes = true
 ij_scss_value_alignment = 0
-
-[*.twig]
-indent_size = 4
-tab_width = 4
-ij_twig_keep_indents_on_empty_lines = false
-ij_twig_spaces_inside_comments_delimiters = true
-ij_twig_spaces_inside_delimiters = true
-ij_twig_spaces_inside_variable_delimiters = true
-
-[*.vue]
-ij_continuation_indent_size = 4
-ij_vue_indent_children_of_top_level = template
-ij_vue_interpolation_new_line_after_start_delimiter = true
-ij_vue_interpolation_new_line_before_end_delimiter = true
-ij_vue_interpolation_wrap = off
-ij_vue_keep_indents_on_empty_lines = false
-ij_vue_spaces_within_interpolation_expressions = true
 
 [.editorconfig]
 ij_editorconfig_align_group_field_declarations = false

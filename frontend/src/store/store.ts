@@ -1,10 +1,11 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { ArticlesSlice, AuthorSlice } from 'store';
+import { ArticlesSlice, AuthorSlice, UISlice } from 'store';
 
 export const store = configureStore({
   reducer: {
     articles: ArticlesSlice.articlesReducer,
     authors: AuthorSlice.authorsReducer,
+    ui: UISlice.uiReducer,
   },
 });
 
