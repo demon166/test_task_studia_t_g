@@ -18,7 +18,7 @@ class ArticleResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'text' => $this->when($this->text, $this->text),
-            'author' => $this->author->full_name
+            'author' => new AuthorResource($this->author),
         ];
     }
 }

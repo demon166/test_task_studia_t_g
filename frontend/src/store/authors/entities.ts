@@ -12,6 +12,7 @@ export interface IAuthor {
 }
 
 export interface IAuthorCreateAndUpdate {
+  id?: string,
   full_name: string,
 }
 
@@ -27,4 +28,3 @@ export interface IAuthorCRUDResponse {
   author: IAuthor,
   message: string,
 }
-

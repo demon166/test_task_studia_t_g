@@ -1,11 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { ArticlesSlice, AuthorSlice, UISlice } from 'store';
+import { ArticlesSlice, AuthorSlice, UISlice, ModeSlice } from 'store';
 
 export const store = configureStore({
   reducer: {
     articles: ArticlesSlice.articlesReducer,
     authors: AuthorSlice.authorsReducer,
     ui: UISlice.uiReducer,
+    mode: ModeSlice.modeReducer,
   },
 });
 

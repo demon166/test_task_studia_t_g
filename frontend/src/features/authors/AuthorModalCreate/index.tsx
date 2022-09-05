@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useAppDispatch } from 'app/hooks';
 import { toast } from 'react-toastify';
-import { AuthorSlice } from 'store';
+import { AuthorSlice, UISlice } from 'store';
 import styles from './index.module.scss';
 
 interface IFormCreateAuthor {
@@ -29,6 +29,7 @@ const AuthorModalCreate = () => {
 
   const successHandle = useCallback(() => {
     toast.success('Автор успешно добавлен.');
+    dispatch(UISlice.ModalSlice.hideModal());
   }, []);
   const errorHandle = useCallback(() => toast.error('Не удалось добавить автора'), []);
 

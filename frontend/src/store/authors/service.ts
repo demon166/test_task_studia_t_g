@@ -9,6 +9,6 @@ import {
 export const AuthorsService = {
   getAuthors: () => api.get<IAuthorResponse>('/authors'),
   deleteAuthor: ({ id }: IDeleteAuthorRequest) => api.delete<IAuthorCRUDResponse>(`/authors/${id}`),
-  createAuthor: (Author: IAuthorCreateAndUpdate) => api.post<IAuthorCRUDResponse>('/authors', Author),
-  updateAuthor: (Author: IAuthorCreateAndUpdate) => api.post<IAuthorCRUDResponse>('/authors', Author),
+  createAuthor: (author: IAuthorCreateAndUpdate) => api.post<IAuthorCRUDResponse>('/authors', author),
+  updateAuthor: (author: IAuthorCreateAndUpdate) => api.post<IAuthorCRUDResponse>('/authors', author),
 };

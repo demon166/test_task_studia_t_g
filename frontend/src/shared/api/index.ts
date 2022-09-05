@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function apiUrl(): string {
-  return 'http://localhost:8000/api';
+  return '/api';
 }
 
 export const api = axios.create({

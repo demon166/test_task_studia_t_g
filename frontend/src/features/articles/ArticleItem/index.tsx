@@ -25,7 +25,7 @@ const ArticleItem = ({ article }: ArticleItemProps) => {
   return (
     <tr className={styles.table__row}>
       <td>{article.title}</td>
-      <td>{article.author}</td>
+      <td>{article.author.full_name}</td>
       <td>
         <div className={styles.btn_group}>
           <Button styleBtn="primary" onClick={editArticleHandle}>Редактировать</Button>

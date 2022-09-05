@@ -5,7 +5,8 @@ export type {
   ArticleReducer,
   IArticleCRUDResponse,
   IArticleCreateAndUpdate,
-  IDeleteArticleRequest,
+  IGetAndDeleteArticleRequest,
+  IFormCreateAndUpdateArticle,
 } from './entities';
-export { getArticles, getError, getStatus } from './selectors';
-export { getArticlesAsync, deleteArticleAsync, createArticleAsync } from './asyncAction';
+export { getArticles, getError, getStatus, getArticle } from './selectors';
+export { getArticlesAsync, deleteArticleAsync, createArticleAsync, updateArticleAsync, getArticleAsync } from './asyncAction';

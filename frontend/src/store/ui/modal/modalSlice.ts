@@ -10,7 +10,7 @@ const modalSlice = createSlice({
   name: 'ui/modalSlice',
   initialState,
   reducers: {
-    showModal: (state, {payload: modal }: PayloadAction<IShowModal>) => ({
+    showModal: (state, { payload: modal }: PayloadAction<IShowModal>) => ({
       isShow: true,
       ...modal,
     }),

@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttons from 'pages/ArticlesPages/Components/Header/Buttons/Buttons';
+import Buttons from './Buttons';
 
 const HeaderArticlePages = () => (
   <header>
